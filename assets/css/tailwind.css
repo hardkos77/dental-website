@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .clip-triangle {
+        @apply relative;
+        clip-path: polygon(100% 0, 100% 100%, 0 0);
+        background-color: var(--blue);
+    }
+    .content-section {
+        @apply pl-10 py-20;
+    }
+}

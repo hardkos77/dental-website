@@ -1,0 +1,54 @@
+/* Fonts __________*/
+@font-face {
+  font-family: 'Ilisarniq-Light';
+  src: url('/assets/fonts/Ilisarniq-Light.woff2') format('woff2'),
+  url('/assets/fonts/Ilisarniq-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ilisarniq-Regular';
+  src: url('/assets/fonts/Ilisarniq-Regular.woff2') format('woff2'),
+  url('/assets/fonts/Ilisarniq-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ilisarniq-Demi';
+  src: url('/assets/fonts/Ilisarniq-Demi.woff2') format('woff2'),
+  url('/assets/fonts/Ilisarniq-Demi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ilisarniq-Bold';
+  src: url('/assets/fonts/Ilisarniq-Bold.woff2') format('woff2'),
+  url('/assets/fonts/Ilisarniq-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ilisarniq-Black';
+  src: url('/assets/fonts/Ilisarniq-Black.woff2') format('woff2'),
+  url('/assets/fonts/Ilisarniq-Black.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Variables __________*/
+$blue: #87CEEB;
+$green: #78FECF;
+$red: #F46767;
+$grey: #F2F2F2;
+$white: #FFFFFF;
+$black: #1F1F1F;
+
+:root {
+  --blue: #87CEEB;
+  --back_color: #78FECF;
+  --line_color: #1F1F1F;
+}
