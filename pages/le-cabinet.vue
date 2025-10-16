@@ -7,7 +7,6 @@
 
     <!-- Bloc Dr Ortega -->
     <div class="dr-section px-6 py-16 md:flex md:items-center md:justify-center bg-white">
-      <!-- <img src="/images/dr-ortega.jpg" alt="Dr Maxime Ortega" class="dr-image mb-6 md:mb-0 md:mr-8 w-full md:w-1/2 rounded-lg shadow-lg" /> -->
       <div class="dr-text md:w-1/2">
         <h2 class="text-3xl font-semibold text-[#F46767] mb-4">Dr Maxime Ortega</h2>
         <p class="text-gray-700 text-lg leading-relaxed">
@@ -25,7 +24,6 @@
       <div class="max-w-6xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 px-4">
         <!-- Justine -->
         <div class="staff-card text-center p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transition opacity-0">
-          <!-- <img src="/images/justine.jpg" alt="Justine" class="mx-auto w-40 h-40 rounded-full object-cover mb-4" /> -->
           <h3 class="text-xl font-bold text-[#F46767]">Justine</h3>
           <p class="text-gray-600 mt-2">
             Assistante dentaire qualifiée, Justine vous accompagne avec empathie et rigueur tout au long de vos soins.
@@ -34,7 +32,6 @@
 
         <!-- Nathalie -->
         <div class="staff-card text-center p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transition opacity-0">
-          <!-- <img src="/images/nathalie.jpg" alt="Nathalie" class="mx-auto w-40 h-40 rounded-full object-cover mb-4" /> -->
           <h3 class="text-xl font-bold text-[#F46767]">Nathalie</h3>
           <p class="text-gray-600 mt-2">
             Responsable de l’accueil, Nathalie saura vous guider et organiser vos rendez-vous avec efficacité et sourire.
@@ -42,32 +39,44 @@
         </div>
       </div>
     </div>
+
+    <!-- Bloc Conseil du dentiste -->
+    <section class="dentist-advice-section bg-white relative z-10 pt-8">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-10 px-6">
+        <div class="max-w-xl">
+          <h2 class="text-3xl font-bold text-[#78FECF] mb-6">Le conseil du dentiste</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Le brossage des dents est un geste quotidien simple, mais essentiel. Réalisé trois fois par jour pendant deux minutes avec une brosse souple et un dentifrice fluoré, il permet de prévenir l’apparition de caries, de préserver les gencives, et de maintenir une haleine fraîche. N’oubliez pas les mouvements doux et circulaires !
+          </p>
+        </div>
+        <div class="w-full md:w-auto flex justify-center">
+          <LottieDentifrice class="w-[260px] h-[260px] max-w-full" />
+        </div>
+      </div>
+    </section>
   </div>
-
-  <!-- Bloc Conseil du dentiste -->
-  <section class="dentist-advice-section bg-white relative z-10 pt-8">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-10 px-6">
-
-      <!-- Texte -->
-      <div class="max-w-xl">
-        <h2 class="text-3xl font-bold text-[#78FECF] mb-6">Le conseil du dentiste</h2>
-        <p class="text-lg text-gray-700 leading-relaxed">
-          Le brossage des dents est un geste quotidien simple, mais essentiel. Réalisé deux fois par jour pendant deux minutes avec une brosse souple et un dentifrice fluoré, il permet de prévenir l’apparition de caries, de préserver les gencives, et de maintenir une haleine fraîche. N’oubliez pas les mouvements doux et circulaires !
-        </p>
-      </div>
-
-      <!-- Animation Lottie -->
-      <div class="w-full md:w-auto flex justify-center">
-        <LottieDentifrice class="w-[260px] h-[260px] max-w-full" />
-      </div>
-    </div>
-  </section>
-
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 import LottieDentifrice from '@/components/LottieDentifrice.vue';
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: 'Le Cabinet - Dr Maxime Ortega',
+  meta: [
+    { name: 'description', content: 'Présentation du cabinet dentaire du Dr Maxime Ortega, son équipe et ses engagements.' },
+    { name: 'robots', content: 'index, follow' },
+    { property: 'og:title', content: 'Le Cabinet - Dr Maxime Ortega' },
+    { property: 'og:description', content: 'Cabinet dentaire moderne à Pontarlier avec une équipe dévouée et compétente.' },
+    { property: 'og:url', content: 'https://dentiste-ortega.fr/le-cabinet' },
+    { property: 'og:type', content: 'website' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://dentiste-ortega.fr/le-cabinet' }
+  ]
+});
 
 onMounted(() => {
   gsap.from('.dr-text', { opacity: 0, x: 100, duration: 1 });

@@ -46,7 +46,7 @@
       <section class="mb-12">
         <h2 class="text-2xl font-semibold text-[#F46767] mb-4">Données personnelles</h2>
         <p class="text-gray-700 leading-relaxed">
-          Les données collectées via les formulaires sont exclusivement utilisées dans le cadre de l’activité du cabinet. Conformément à la loi “Informatique et Libertés”, vous disposez d’un droit d’accès, de rectification et de suppression à adresser à : <a href="mailto:contact@maximeortega.fr" class="text-blue-500 hover:underline">contact@maximeortega.fr</a>
+          Les données collectées via les formulaires sont exclusivement utilisées dans le cadre de l’activité du cabinet. Conformément à la loi “Informatique et Libertés”, vous disposez d’un droit d’accès, de rectification et de suppression à adresser à : <a href="mailto:contact@maximeortega.fr" class="text-blue-500 hover:underline">dr.maxime.ortega@gmail.com</a>
         </p>
       </section>
 
@@ -72,7 +72,23 @@
 </template>
 
 <script setup>
-// Aucun script requis
+useHead({
+  title: 'Mentions légales – Dr Maxime Ortega, dentiste à Doubs',
+  meta: [
+    {
+      name: 'description',
+      content: 'Mentions légales du site du cabinet dentaire du Dr Maxime Ortega à Doubs – éditeur, hébergeur, propriété intellectuelle, RGPD, déontologie.',
+    },
+    { name: 'robots', content: 'noindex, follow' },
+    { property: 'og:title', content: 'Mentions légales – Dr Maxime Ortega' },
+    { property: 'og:description', content: 'Informations légales relatives au cabinet dentaire de Dr Maxime Ortega à Doubs (France).' },
+    { property: 'og:url', content: 'https://dentiste-ortega.fr/mentions-legales' },
+    { property: 'og:type', content: 'website' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://dentiste-ortega.fr/mentions-legales' }
+  ]
+})
 </script>
 
 <style scoped>
@@ -87,6 +103,6 @@
 
 .content-section {
   background-color: white;
-  padding-bottom: 2rem; /* Réduction espace bas */
+  padding-bottom: 2rem;
 }
 </style>

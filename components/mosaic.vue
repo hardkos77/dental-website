@@ -1,17 +1,55 @@
 <template>
-  <div class="mosaic-container mx-auto py-12 px-4">
-    <div class="grid grid-cols-4 gap-4">
-      <div
-          v-for="(image, index) in images"
-          :key="index"
-          class="photo-item overflow-hidden rounded-lg shadow-lg"
-          ref="photos"
-      >
-        <img
-            :src="image"
-            alt="Photo mosaïque"
-            class="w-full h-full object-cover transform scale-100"
-        />
+  <div class="page-container">
+    <!-- Trait vert et titre -->
+    <div class="header-section">
+      <div class="green-bar"></div>
+      <h2 class="title">Un confort technologique</h2>
+    </div>
+
+    <!-- Section de mosaïque -->
+    <div class="mosaic-container mx-auto py-12 px-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div
+            v-for="(image, index) in images"
+            :key="index"
+            class="photo-item overflow-hidden rounded-lg shadow-lg"
+            ref="photos"
+        >
+          <img
+              :src="image"
+              alt="Photo mosaïque"
+              class="w-full h-full object-cover transform scale-100"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Section avec trois colonnes -->
+    <div class="info-section bg-gray-100 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12">
+        <!-- Colonne 1 -->
+        <div class="column">
+          <h3 class="subtitle">Technologie de pointe</h3>
+          <p class="text">
+            Nos équipements modernes garantissent des soins précis et de haute qualité pour le confort des patients.
+          </p>
+        </div>
+
+        <!-- Colonne 2 -->
+        <div class="column">
+          <h3 class="subtitle">Un soin personnalisé</h3>
+          <p class="text">
+            Chaque traitement est adapté aux besoins uniques de nos patients, avec une attention particulière au détail.
+          </p>
+        </div>
+
+        <!-- Colonne 3 -->
+        <div class="column">
+          <h3 class="subtitle">Une expérience agréable</h3>
+          <p class="text">
+            Nous veillons à offrir un environnement chaleureux et apaisant, avec un accent sur le bien-être.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -21,7 +59,7 @@
 import { gsap } from "gsap";
 
 export default {
-  name: "Mosaic",
+  name: "MosaicAndInfo",
   data() {
     return {
       images: [
@@ -33,7 +71,7 @@ export default {
         "/images/dentiste.jpg",
         "/images/dentiste.jpg",
         "/images/dentiste.jpg",
-      ], // Les chemins des 8 images
+      ],
     };
   },
   methods: {
@@ -59,25 +97,74 @@ export default {
 
 <style scoped lang="scss">
 .mosaic-container {
+  padding-top: 0;
   max-width: 1200px;
 }
 
+.page-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.green-bar {
+  height: 4px;
+  width: 40%;
+  background-color: #78fecf;
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
 .photo-item {
-  height: 200px; /* Hauteur de chaque photo */
-  position: relative; /* Nécessaire pour les animations */
-  overflow: hidden; /* Coupe tout dépassement de l'image */
-  background-color: transparent; /* Supprime tout arrière-plan blanc */
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
 }
 
 img {
-  width: 100%; /* Assure que l'image prend toute la largeur */
-  height: 100%; /* Assure que l'image prend toute la hauteur */
-  object-fit: cover; /* Garde le ratio et remplit le conteneur */
-  transition: transform 0.3s ease-in-out; /* Ajoute l'effet de zoom */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
 }
 
 img:hover {
-  transform: scale(1.1); /* Zoom léger au survol */
+  transform: scale(1.1);
 }
 
+.info-section {
+  background-color: #f7f7f7;
+  width: 100%;
+}
+
+.column {
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
 </style>

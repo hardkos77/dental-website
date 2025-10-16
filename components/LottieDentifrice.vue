@@ -1,14 +1,11 @@
 <template>
-  <ClientOnly>
+  <div class="flex justify-center md:justify-end">
     <lottie-player
         autoplay
         loop
+        mode="normal"
         src="/animations/dentifrice.json"
-        style="width: 300px; height: 300px"
+        style="width: 260px; height: 260px; margin-left: 20px;"
     />
-  </ClientOnly>
+  </div>
 </template>
-
-<script setup>
-import '@lottiefiles/vue-lottie-player';
-</script>

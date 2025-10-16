@@ -1,19 +1,10 @@
 <template>
+  <div class="green-bar"></div>
   <div class="container mx-auto px-4 py-12 relative">
-    <!-- Canvas pour les flocons -->
-    <canvas ref="canvas" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
-
-    <!-- Contenu principal -->
+    <!-- Reste du composant -->
     <div class="relative z-10">
-      <!-- Titre à gauche -->
-      <div class="mb-12">
-        <h2
-            ref="title"
-            class="text-4xl font-bold mb-4 text-left bg-gradient-to-r from-green to-blue text-transparent bg-clip-text"
-        >
-          Les valeurs du cabinet
-        </h2>
-        <div class="h-1 w-16 bg-green"></div> <!-- Ligne colorée sous le titre -->
+      <div class="header-section">
+        <h2 class="title">Les valeurs du cabinet</h2>
       </div>
 
       <!-- Contenu en deux colonnes -->
@@ -57,9 +48,9 @@
 
             <!-- Compteur animé -->
             <span class="text-5xl font-bold" :style="{ color: colors[index % colors.length] }">
-              {{ animatedValues[index] }}
+              +{{ animatedValues[index] }}
             </span>
-            <p class="text-gray-600 mt-2 text-base">{{ counter.label }}</p>
+            <p class="text-gray-600 mt-2 text-base drop-shadow-md">{{ counter.label }}</p>
           </div>
         </div>
       </div>
@@ -105,8 +96,7 @@ export default {
     return {
       counters: this.initialCounters,
       animatedValues: this.initialCounters.map(() => 0),
-      colors: ["#78FECF", "#87CEEB", "#F46767"], // Palette principale
-      particles: [],
+      colors: ["#78FECF", "#87CEEB", "#F2F2F2"], // Palette principale
     };
   },
   methods: {
@@ -124,21 +114,18 @@ export default {
       });
     },
     triggerAnimations() {
-      // Animation du titre principal
       gsap.fromTo(
           this.$refs.title,
           { opacity: 0, y: -50 },
           { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
       );
 
-      // Animation des paragraphes
       gsap.fromTo(
           this.$refs.paragraphs,
           { opacity: 0, x: -50 },
           { opacity: 1, x: 0, stagger: 0.3, duration: 1, ease: "power2.out" }
       );
 
-      // Animation des titres (flottaison)
       gsap.to(this.$refs.titles, {
         y: -10,
         repeat: -1,
@@ -148,7 +135,6 @@ export default {
         stagger: 0.3,
       });
 
-      // Animation des compteurs
       gsap.fromTo(
           this.$refs.counters,
           { opacity: 0, y: 50 },
@@ -162,60 +148,9 @@ export default {
           }
       );
     },
-    createParticles() {
-      const canvas = this.$refs.canvas;
-      const ctx = canvas.getContext("2d");
-      const particles = [];
-      const colors = ["#78FECF", "#87CEEB", "#F46767"];
-      const numParticles = 50;
-
-      canvas.width = canvas.clientWidth;
-      canvas.height = canvas.clientHeight;
-
-      // Génère les particules
-      for (let i = 0; i < numParticles; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 3 + 2,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          speed: Math.random() * 1 + 0.5,
-        });
-      }
-
-      const drawParticles = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles.forEach((particle) => {
-          ctx.beginPath();
-          ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-          ctx.fillStyle = particle.color;
-          ctx.fill();
-        });
-      };
-
-      const updateParticles = () => {
-        particles.forEach((particle) => {
-          particle.y += particle.speed;
-
-          if (particle.y > canvas.height) {
-            particle.y = -particle.radius;
-          }
-        });
-      };
-
-      const animate = () => {
-        drawParticles();
-        updateParticles();
-        requestAnimationFrame(animate);
-      };
-
-      animate();
-    },
   },
   mounted() {
     this.triggerAnimations();
-    this.createParticles();
   },
 };
 </script>
@@ -226,14 +161,28 @@ export default {
   position: relative;
   overflow: hidden;
 }
+.header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 1.5rem 0; // top: 0
+  color: #333;
+}
+
+.green-bar {
+  height: 4px;
+  width: 40%;
+  background-color: #78fecf;
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom: -1rem;
+
+  @media (max-width: 767px) {
+    margin-top: 3rem;
+  }
 }
 </style>

@@ -89,3 +89,6 @@ html {
 h1, h2, h3{
   letter-spacing: 5px;
 }
+.grecaptcha-badge {
+  transition: opacity 0.2s ease;
+}

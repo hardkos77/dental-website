@@ -1,27 +1,58 @@
 <template>
   <header class="fixed w-full top-0 left-0" :class="{ 'bg-scrolled': isScrolled, 'bg-transparent': !isScrolled }" style="z-index: 1000;">
-    <nav class="container mx-auto flex items-center justify-center py-3 gap-x-8">
-      <!-- Lien "Mes Services" -->
-      <NuxtLink class="nav-link" to="/MyServices">Mes Services</NuxtLink>
-
+    <nav class="container mx-auto items-center justify-center py-3 gap-x-8 hidden sm:flex">
+      <NuxtLink class="nav-link" to="/services">Mes Services</NuxtLink>
       <span class="border-l-2 h-6 border-black"></span>
-
-      <!-- Lien "Technologies" -->
-      <NuxtLink class="nav-link" to="/Technologies">Technologies</NuxtLink>
-
-      <!-- Logo de l'entreprise avec effet au survol -->
+      <NuxtLink class="nav-link" to="/technologies">Technologies</NuxtLink>
       <NuxtLink to="/" class="z-10 mx-12 logo-hover">
         <img src="/images/logo/logo-max.svg" alt="Logo de l'entreprise" class="h-20 md:h-24">
       </NuxtLink>
-
-      <!-- Lien "À propos" -->
-      <NuxtLink class="nav-link" to="/About">À propos</NuxtLink>
-
+      <NuxtLink class="nav-link" to="/le-cabinet">Le cabinet</NuxtLink>
       <span class="border-l-2 h-6 border-black"></span>
-
-      <!-- Lien "Contact & Accès" -->
-      <NuxtLink class="nav-link" to="/Contact">Contact & Accès</NuxtLink>
+      <NuxtLink class="nav-link" to="/contact">Contact & Accès</NuxtLink>
     </nav>
+
+    <!-- Burger + Cross -->
+    <div class="sm:hidden flex items-center justify-between px-4 py-3">
+      <NuxtLink to="/">
+        <img src="/images/logo/logo-max.svg" alt="Logo" class="h-16">
+      </NuxtLink>
+      <button @click="toggleMenu" aria-label="Menu mobile" class="p-0 m-0 bg-transparent flex items-center z-[100] transition-transform duration-300">
+        <svg
+            v-if="!isMenuOpen"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 text-black"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg
+            v-else
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 text-black"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <transition name="fade">
+      <div
+          v-if="isMenuOpen"
+          class="sm:hidden fixed inset-0 flex flex-col items-center justify-center space-y-6 bg-white/90 z-40 transition-all duration-300"
+      >
+        <NuxtLink class="nav-link text-xl text-black" to="/services" @click="closeMenu">Mes Services</NuxtLink>
+        <NuxtLink class="nav-link text-xl text-black" to="/technologies" @click="closeMenu">Technologies</NuxtLink>
+        <NuxtLink class="nav-link text-xl text-black" to="/le-cabinet" @click="closeMenu">Le cabinet</NuxtLink>
+        <NuxtLink class="nav-link text-xl text-black" to="/contact" @click="closeMenu">Contact & Accès</NuxtLink>
+      </div>
+    </transition>
   </header>
 </template>
 
@@ -31,6 +62,7 @@ export default {
   data() {
     return {
       isScrolled: false,
+      isMenuOpen: false,
     };
   },
   mounted() {
@@ -42,7 +74,13 @@ export default {
   },
   methods: {
     handleScroll() {
-      this.isScrolled = window.scrollY > 20; // Vous pouvez ajuster le seuil ici
+      this.isScrolled = window.scrollY > 20;
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+    closeMenu() {
+      this.isMenuOpen = false;
     },
   },
 };
@@ -77,12 +115,12 @@ export default {
 .nav-link {
   position: relative;
   text-decoration: none;
-  color: #4a5568; /* text-gray-600 */
+  color: #4a5568;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #1a202c; /* text-gray-900 */
+  color: #1a202c;
 }
 
 .nav-link::after {
@@ -108,5 +146,12 @@ export default {
 .logo-hover:hover > img {
   transform: scale(1.1);
 }
-</style>
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+</style>
