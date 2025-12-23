@@ -1,13 +1,11 @@
 <template>
   <div class="green-bar"></div>
   <div class="container mx-auto px-4 py-12 relative">
-    <!-- Reste du composant -->
     <div class="relative z-10">
       <div class="header-section">
         <h2 class="title">Les valeurs du cabinet</h2>
       </div>
 
-      <!-- Contenu en deux colonnes -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         <!-- Colonne 1 : Paragraphes avec fond coloré -->
         <div>
@@ -96,7 +94,7 @@ export default {
     return {
       counters: this.initialCounters,
       animatedValues: this.initialCounters.map(() => 0),
-      colors: ["#78FECF", "#87CEEB", "#F2F2F2"], // Palette principale
+      colors: ["#78FECF", "#87CEEB", "#F2F2F2"],
     };
   },
   methods: {

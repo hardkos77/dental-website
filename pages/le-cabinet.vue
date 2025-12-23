@@ -1,11 +1,9 @@
 <template>
   <div class="cabinet-page">
-    <!-- Header identique -->
     <div class="header-section text-center py-20">
       <h1 class="text-4xl font-bold mb-6">Le Cabinet</h1>
     </div>
 
-    <!-- Bloc Dr Ortega -->
     <div class="dr-section px-6 py-16 md:flex md:items-center md:justify-center bg-white">
       <div class="dr-text md:w-1/2">
         <h2 class="text-3xl font-semibold text-[#F46767] mb-4">Dr Maxime Ortega</h2>

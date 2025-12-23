@@ -1,6 +1,5 @@
 <template>
   <div class="page-container">
-    <!-- Trait vert et titre -->
     <div class="header-section">
       <div class="green-bar"></div>
       <h2 class="title">Un confort technologique</h2>

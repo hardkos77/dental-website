@@ -202,17 +202,16 @@ export default {
 *************************/
 
 a {
-  color: inherit; /* Par défaut, conserve la couleur courante */
+  color: inherit;
   transition: color 0.3s ease-in-out;
 }
 
 a:hover {
-  color: $blue; /* Utilise le bleu de votre palette */
+  color: $blue;
 }
 
-/* Si $blue n'est pas défini dans vos variables */
 a:hover {
-  color: #87CEEB; /* Exemple de code couleur bleu */
+  color: #87CEEB;
 }
 
 /************************
@@ -311,7 +310,7 @@ footer h3 {
   font-family: "Ilisarniq-Bold", monospace;
   letter-spacing: 1px;
   text-transform: uppercase;
-  display: inline-block; /* Fixe la largeur au texte uniquement */
+  display: inline-block;
   box-decoration-break: clone;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   padding: 0 4px;

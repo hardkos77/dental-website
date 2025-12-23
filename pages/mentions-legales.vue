@@ -1,11 +1,9 @@
 <template>
   <div class="mentions-legales-page">
-    <!-- Bloc titre avec fond gris -->
     <div class="header-section text-center py-20">
       <h1 class="text-4xl font-bold mb-6">Mentions Légales</h1>
     </div>
 
-    <!-- Contenu principal -->
     <div class="content-section max-w-4xl mx-auto px-6 pt-16 pb-8">
       <!-- Éditeur -->
       <section class="mb-12">

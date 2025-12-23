@@ -9,10 +9,8 @@ export default {
   ],
   theme: {
     extend: {
-      // Ici, vous pouvez étendre votre thème Tailwind
     },
   },
   plugins: [
-    // Liste des plugins Tailwind que vous souhaitez utiliser
   ],
 }

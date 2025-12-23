@@ -1,10 +1,13 @@
 <template>
-  <!-- Layout minimal; la page gère son propre fond -->
   <div class="layout-maintenance">
     <slot />
   </div>
 </template>
 
-<style scoped>
-.layout-maintenance{min-height:100vh}
+<style lang="scss" scoped>
+:global(body){ margin:0; }
+.layout-maintenance{
+  min-height:100vh;
+  width:100%;
+}
 </style>

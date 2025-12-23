@@ -12,18 +12,15 @@
 
     <!-- Colonne droite : Contenu -->
     <div class="content">
-      <!-- Sous-titre souligné -->
       <h2 class="text-3xl font-bold mb-4 relative">
         Nos Services
       </h2>
 
-      <!-- Texte descriptif -->
       <p class="text-gray-600 text-base md:text-lg mb-6">
         Découvrez une gamme complète de services dentaires, adaptés à vos besoins et garantissant votre confort et votre bien-être.
         Nous utilisons les dernières technologies pour offrir des soins d'excellence.
       </p>
 
-      <!-- Bouton vers services.vue -->
       <button
           @click="goToServices"
           class="bg-green text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-dark transition duration-300"
@@ -39,7 +36,6 @@ export default {
   name: "Services",
   methods: {
     goToServices() {
-      // Redirection vers la page services.vue
       this.$router.push({ name: "myServices" });
     },
   },
@@ -53,7 +49,6 @@ export default {
   padding-bottom: 0;
 }
 
-/* Sous-titre avec soulignement vert */
 h2 {
   position: relative;
   display: inline-block;
@@ -66,20 +61,18 @@ h2 {
   left: 0;
   width: 50%;
   height: 5px;
-  background-color: #78fecf; /* Vert */
+  background-color: #78fecf;
   border-radius: 3px;
 }
 
-/* Bouton */
 button {
-  background-color: #78fecf; /* Vert */
+  background-color: #78fecf;
 }
 
 button:hover {
-  background-color: #66e0b8; /* Vert foncé */
+  background-color: #66e0b8;
 }
 
-/* Couleur supplémentaire */
 .bg-green {
   background-color: #78fecf;
 }

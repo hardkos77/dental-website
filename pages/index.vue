@@ -53,5 +53,4 @@ useHead({
 </script>
 
 <style scoped>
-/* Aucune animation, fichier épuré */
 </style>

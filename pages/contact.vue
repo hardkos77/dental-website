@@ -1,11 +1,9 @@
 <template>
   <div class="contact-page">
-    <!-- Titre et texte explicatif -->
     <div class="header-section text-center py-20">
       <h1 class="text-4xl font-bold mb-6">Contact & Accès</h1>
     </div>
 
-    <!-- Bloc principal avec fond coloré -->
     <div class="contact-container">
       <!-- Colonne gauche : Titre, accès et Google Maps -->
       <div class="contact-info">
@@ -22,7 +20,6 @@
           <br> 📞 <a href="tel:+33381394323" class="underline hover:text-teal-200">+33 3 81 39 43 23</a>
         </p>
 
-        <!-- Carte Google Maps -->
         <div class="map-container mt-6">
           <iframe
               class="map"
@@ -158,18 +155,15 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
-/* Conteneur principal */
 .contact-page {
   width: 100%;
 }
 
-/* Section titre */
 .header-section {
   background-color: #f8f8f8;
   margin-top: 80px;
 }
 
-/* Conteneur général avec fond coloré */
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -179,14 +173,12 @@ const submitForm = async () => {
   width: 100%;
 }
 
-/* Colonne gauche : Titre + accès + map */
 .contact-info {
   text-align: center;
   color: white;
   padding: 0 50px;
 }
 
-/* Carte Google Maps */
 .map-container {
   width: 100%;
   display: flex;
@@ -195,11 +187,10 @@ const submitForm = async () => {
 
 .map {
   width: 90%;
-  height: 350px; /* Augmentation de la hauteur */
+  height: 350px;
   border-radius: 8px;
 }
 
-/* Colonne droite : Formulaire */
 .contact-form {
   background-color: white;
   padding: 40px 50px;
@@ -213,7 +204,6 @@ form {
   max-width: 400px;
 }
 
-/* Style des champs */
 .form-group {
   position: relative;
   margin-bottom: 30px;
@@ -244,7 +234,6 @@ textarea {
   resize: none;
 }
 
-/* Bouton d'envoi */
 .submit-btn {
   width: 100%;
   padding: 12px;
@@ -262,7 +251,6 @@ textarea {
   background-color: #66e0b8;
 }
 
-/* Message de confirmation */
 .success-message {
   color: green;
   font-size: 1rem;
@@ -270,7 +258,6 @@ textarea {
   text-align: center;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .contact-container {
     grid-template-columns: 1fr;
